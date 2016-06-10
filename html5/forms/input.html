@@ -4,30 +4,32 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
 <title>input types - irok/html5</title>
+<style>
+h2 { margin-bottom: 0; }
+ul { margin: 0; }
+</style>
 </head>
 <body>
 <h1>input types</h1>
-<h2>type="text"</h2>
-<p><input type="text" size="20" /></p>
-<h2>type="search"</h2>
-<p><input type="search" size="20" /></p>
-<h2>type="tel"</h2>
-<p><input type="tel" size="20" /></p>
-<h2>type="url"</h2>
-<p><input type="url" size="20" /></p>
-<h2>type="email"</h2>
-<p><input type="email" size="20" /></p>
-<h2>type="password"</h2>
-<p><input type="password" size="20" /></p>
-<h2>type="date"</h2>
-<p><input type="date" size="20" /></p>
-<h2>type="time"</h2>
-<p><input type="time" size="20" /></p>
-<h2>type="number"</h2>
-<p><input type="number" size="20" /></p>
-<h2>type="range"</h2>
-<p><input type="range" size="20" /></p>
-<h2>type="color"</h2>
-<p><input type="color" size="20" /></p>
+<h2>確認すること</h2>
+<ul>
+  <li>typeによるフォームの違い</li>
+  <li>typeによるスマートフォンのキーボードの違い</li>
+  <li>どのような値が送信されるか</li>
+</ul>
+<form style="margin-top:1em;">
+<p>text：<input name="text" type="text" size="20" /></p>
+<p>search：<input name="search" type="search" size="20" /></p>
+<p>tel：<input name="tel" type="tel" size="20" /></p>
+<p>url：<input name="url" type="url" size="20" /></p>
+<p>email：<input name="email" type="email" size="20" /></p>
+<p>password：<input name="password" type="password" size="20" /></p>
+<p>date：<input name="date" type="date" size="20" /></p>
+<p>time：<input name="time" type="time" size="20" /></p>
+<p>number：<input name="number" type="number" size="20" /></p>
+<p>range：<input name="range" type="range" size="20" /></p>
+<p>color：<input name="color" type="color" size="20" /></p>
+<p><button type="submit">送信</button></p>
+</form>
 </body>
 </html>
