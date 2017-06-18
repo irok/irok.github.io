@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>vertical-aline - irok/css</title>
+<style>
+body {
+  margin-bottom: 3em;
+}
+h2 {
+  margin-bottom: 0;
+  padding: 4px 8px;
+  background-color: #6cf;
+}
+
+.small  { font-size: 1em; }
+.middle { font-size: 2em; }
+.large  { font-size: 3em; }
+
+.small-icon { width: 20px; }
+.large-icon { width: 120px; }
+
+.v-top    > * { vertical-align: top; }
+.v-middle > * { vertical-align: middle; }
+.v-bottom > * { vertical-align: bottom; }
+</style>
+</head>
+<body>
+  <h1>vertical-align</h1>
+
+  <h2>baseline (default)</h2>
+  <p class="v-baseline">
+    <span class="small">小さい</span>
+    <span class="middle">中くらい</span>
+    <img class="small-icon" src="../image/irok.png"/>
+    <span class="large">大きい</span>
+  </p>
+
+  <h2>top</h2>
+  <p class="v-top">
+    <span class="small">小さい</span>
+    <span class="middle">中くらい</span>
+    <img class="small-icon" src="../image/irok.png"/>
+    <span class="large">大きい</span>
+  </p>
+
+  <h2>middle</h2>
+  <p class="v-middle">
+    <span class="small">小さい</span>
+    <span class="middle">中くらい</span>
+    <img class="small-icon" src="../image/irok.png"/>
+    <span class="large">大きい</span>
+  </p>
+
+  <h2>bottom</h2>
+  <p class="v-bottom">
+    <span class="small">小さい</span>
+    <span class="middle">中くらい</span>
+    <img class="small-icon" src="../image/irok.png"/>
+    <span class="large">大きい</span>
+  </p>
+
+  <h2>baseline (default)</h2>
+  <p class="v-baseline">
+    <span class="small">小さい</span>
+    <span class="middle">中くらい</span>
+    <img class="large-icon" src="../image/irok.png"/>
+    <span class="large">大きい</span>
+  </p>
+
+  <h2>top</h2>
+  <p class="v-top">
+    <span class="small">小さい</span>
+    <span class="middle">中くらい</span>
+    <img class="large-icon" src="../image/irok.png"/>
+    <span class="large">大きい</span>
+  </p>
+
+  <h2>middle</h2>
+  <p class="v-middle">
+    <span class="small">小さい</span>
+    <span class="middle">中くらい</span>
+    <img class="large-icon" src="../image/irok.png"/>
+    <span class="large">大きい</span>
+  </p>
+
+  <h2>bottom</h2>
+  <p class="v-bottom">
+    <span class="small">小さい</span>
+    <span class="middle">中くらい</span>
+    <img class="large-icon" src="../image/irok.png"/>
+    <span class="large">大きい</span>
+  </p>
+</body>
+</html>
