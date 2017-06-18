@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>float - irok/css</title>
+<style>
+body {
+  margin-bottom: 3em;
+}
+h2 {
+  margin: 1em 0 .5em;
+  padding: 4px 8px;
+  background-color: #6cf;
+}
+
+.parent {
+  width: 500px;
+  border: 1px solid blue;
+}
+
+.floating {
+  float: right;
+  width: 200px;
+  border: 1px solid red;
+}
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: '';
+}
+</style>
+</head>
+<body>
+  <h1>float</h1>
+
+  <h2>clearした場合</h2>
+  <div class="parent clearfix">
+    <div class="floating">
+      フロート要素だよ<br/>
+      フロート要素だよ<br/>
+      フロート要素だよ<br/>
+      フロート要素だよ<br/>
+      フロート要素だよ<br/>
+    </div>
+    こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは
+  </div>
+
+  <h2>clearしなかった場合</h2>
+  <div class="parent">
+    <div class="floating">
+      フロート要素だよ<br/>
+      フロート要素だよ<br/>
+      フロート要素だよ<br/>
+      フロート要素だよ<br/>
+      フロート要素だよ<br/>
+    </div>
+    こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは
+  </div>
+
+  <br style="clear:both"/>
+
+  <h2>clearしなくてもうまくいく例</h2>
+  <div class="parent">
+    <div class="floating">
+      フロート要素だよ<br/>
+      フロート要素だよ<br/>
+      フロート要素だよ<br/>
+    </div>
+    こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは
+  </div>
+
+</body>
+</html>
