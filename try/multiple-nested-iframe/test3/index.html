@@ -12,6 +12,7 @@
     padding: 0;
   }
   .trial {
+    display: none;
     height: 200px;
     background-color: #ccc;
   }
@@ -29,17 +30,19 @@
 </style>
 <script>
   function init() {
+    var t = document.getElementsByClassName('trial')[0];
+
     var f = document.createElement('iframe');
     f.src = './container.html';
     f.addEventListener('load', function() {
-      document.getElementsByClassName('trial')[0].innerHTML += 'loaded!<br/>height: ' + (screen.availHeight - 200) + 'px';
+      t.innerHTML += 'loaded!<br/>height: ' + (screen.availHeight - t.clientHeight) + 'px';
     });
     f.addEventListener('error', function() {
-      document.getElementsByClassName('trial')[0].innerHTML += 'error!';
+      t.innerHTML += 'error!';
     });
 
     var c = document.getElementById('iframe-container');
-    c.style.height = (screen.availHeight - 200) + 'px';
+    c.style.height = (screen.availHeight - t.clientHeight) + 'px';
     c.appendChild(f);
   }
 </script>
