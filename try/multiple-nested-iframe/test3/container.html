@@ -21,8 +21,19 @@
     border: none;
   }
 </style>
+<script>
+  function test() {
+    var s = '';
+    s += 'window.innerHeight = ' + window.innerHeight + '\n';
+    s += 'document.documentElement.clientWidth = ' + document.documentElement.clientWidth + '\n';
+    s += 'document.documentElement.offsetWidth = ' + document.documentElement.offsetWidth + '\n';
+    s += 'document.body.clientWidth = ' + document.body.clientWidth + '\n';
+    s += 'document.body.offsetWidth = ' + document.body.offsetWidth + '\n';
+    alert(s);
+  }
+</script>
 </head>
-<body onload="alert(window.innerHeight)">
+<body onload="test()">
   <div id="iframe-container">
     <iframe src="game.html" frameborder="0"></iframe>
   </div>
