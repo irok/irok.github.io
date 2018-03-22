@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>new page</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #iframe-container {
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #iframe-container iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+</head>
+<body>
+  <div id="iframe-container">
+    <iframe src="gadget.html"></iframe>
+  </div>
+  <script>
+    document.getElementById('iframe-container').style.height = window.innerHeight + 'px';
+  </script>
+</body>
+</html>
