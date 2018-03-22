@@ -24,9 +24,9 @@
   }
 </style>
 <script>
-  function test() {
+  function init() {
     if (window.innerHeight === 0) {
-      setTimeout(test, 100);
+      setTimeout(init, 100);
       return;
     }
 
@@ -36,12 +36,10 @@
     var c = document.getElementById('iframe-container');
     c.style.height = window.innerHeight + 'px';
     c.appendChild(f);
-
-    alert('window.innerHeight = ' + window.innerHeight);
   }
 </script>
 </head>
-<body onload="test()">
+<body onload="init()">
   <div id="iframe-container"></div>
 </body>
 </html>
