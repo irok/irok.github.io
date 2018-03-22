@@ -32,14 +32,14 @@
     var f = document.createElement('iframe');
     f.src = './container.html';
     f.addEventListener('load', function() {
-      document.getElementsByClassName('trial')[0].innerHTML += 'loaded!<br/>height: ' + (screen.availWidth - 200) + 'px';
+      document.getElementsByClassName('trial')[0].innerHTML += 'loaded!<br/>height: ' + (screen.availHeight - 200) + 'px';
     });
     f.addEventListener('error', function() {
       document.getElementsByClassName('trial')[0].innerHTML += 'error!';
     });
 
     var c = document.getElementById('iframe-container');
-    c.style.height = (screen.height - 200) + 'px';
+    c.style.height = (screen.availHeight - 200) + 'px';
     c.appendChild(f);
   }
 </script>
