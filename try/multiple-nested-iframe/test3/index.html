@@ -36,6 +36,13 @@
   </div>
   <script>
     document.getElementById('iframe-container').style.height = (screen.height - 200) + 'px';
+    var f = document.getElementsByTagName('iframe')[0];
+    f.addEventListener('load', function() {
+      document.getElementsByClassName('trial')[0].innerHTML += 'loaded!';
+    });
+    f.addEventListener('error', function() {
+      document.getElementsByClassName('trial')[0].innerHTML += 'error!';
+    });
   </script>
 </body>
 </html>
