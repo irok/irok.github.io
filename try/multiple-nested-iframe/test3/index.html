@@ -31,19 +31,19 @@
 <script>
   function init() {
     var t = document.getElementsByClassName('trial')[0];
-    var offsetTop = /iP(?:hone|[ao]d)/.test(navigator.userAgent) ? 40 : 0;
+    var offset = /iP(?:hone|[ao]d)/.test(navigator.userAgent) ? (141 + 89) / 2 : 0;
 
     var f = document.createElement('iframe');
     f.src = './container.html';
     f.addEventListener('load', function() {
-      t.innerHTML += 'loaded!<br/>height: ' + (screen.availHeight - offsetTop - t.clientHeight) + 'px';
+      t.innerHTML += 'loaded!<br/>height: ' + (screen.availHeight - offset - t.clientHeight) + 'px';
     });
     f.addEventListener('error', function() {
       t.innerHTML += 'error!';
     });
 
     var c = document.getElementById('iframe-container');
-    c.style.height = (screen.availHeight - offsetTop - t.clientHeight) + 'px';
+    c.style.height = (screen.availHeight - offset - t.clientHeight) + 'px';
     c.appendChild(f);
   }
 </script>
