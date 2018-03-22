@@ -38,7 +38,7 @@
     document.getElementById('iframe-container').style.height = (screen.height - 200) + 'px';
     var f = document.getElementsByTagName('iframe')[0];
     f.addEventListener('load', function() {
-      document.getElementsByClassName('trial')[0].innerHTML += 'loaded!';
+      document.getElementsByClassName('trial')[0].innerHTML += 'loaded!<br/>height: ' + (screen.height - 200) + 'px';
     });
     f.addEventListener('error', function() {
       document.getElementsByClassName('trial')[0].innerHTML += 'error!';
