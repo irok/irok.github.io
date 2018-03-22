@@ -31,7 +31,7 @@
 <script>
   function init() {
     var t = document.getElementsByClassName('trial')[0];
-    var offsetTop = /iP(?:hone|[ao]d)/.test(navigator.userAgent()) ? 40 : 0;
+    var offsetTop = /iP(?:hone|[ao]d)/.test(navigator.userAgent) ? 40 : 0;
 
     var f = document.createElement('iframe');
     f.src = './container.html';
