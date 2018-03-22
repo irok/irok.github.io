@@ -36,14 +36,14 @@
     var f = document.createElement('iframe');
     f.src = './container.html';
     f.addEventListener('load', function() {
-      t.innerHTML += 'loaded!<br/>height: ' + (screen.availHeight - t.clientHeight) + 'px';
+      t.innerHTML += 'loaded!<br/>height: ' + (screen.availHeight - offsetTop - t.clientHeight) + 'px';
     });
     f.addEventListener('error', function() {
       t.innerHTML += 'error!';
     });
 
     var c = document.getElementById('iframe-container');
-    c.style.height = (screen.availHeight - t.clientHeight) + 'px';
+    c.style.height = (screen.availHeight - offsetTop - t.clientHeight) + 'px';
     c.appendChild(f);
   }
 </script>
