@@ -31,18 +31,20 @@
     nest: index &gt; container &gt; game<br/>
     scrolling: yes, yes<br/>
   </div>
-  <div id="iframe-container">
-    <iframe src="container.html" frameborder="0"></iframe>
-  </div>
+  <div id="iframe-container"></div>
   <script>
-    document.getElementById('iframe-container').style.height = (screen.height - 200) + 'px';
-    var f = document.getElementsByTagName('iframe')[0];
+    var f = document.createElement('iframe');
+    f.src = './container.html';
     f.addEventListener('load', function() {
       document.getElementsByClassName('trial')[0].innerHTML += 'loaded!<br/>height: ' + (screen.height - 200) + 'px';
     });
     f.addEventListener('error', function() {
       document.getElementsByClassName('trial')[0].innerHTML += 'error!';
     });
+
+    var c = document.getElementById('iframe-container');
+    c.style.height = (screen.height - 200) + 'px';
+    c.appendChild(f);
   </script>
 </body>
 </html>
