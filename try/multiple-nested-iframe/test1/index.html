@@ -18,7 +18,7 @@
   }
 </style>
 </head>
-<body>
+<body onload="console.log('index.onload');">
   <div class="trial">
     nest: index &gt; container &gt; game<br/>
     scrolling: yes, yes<br/>
@@ -26,6 +26,7 @@
   <iframe src="container.html" width="100%" frameborder="0" scrolling="yes"></iframe>
   <script>
     document.getElementsByTagName('iframe')[0].style.height = (screen.height - 200) + 'px';
+    console.log('index.adjustHeight');
   </script>
 </body>
 </html>

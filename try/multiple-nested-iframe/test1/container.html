@@ -14,12 +14,13 @@
   }
 </style>
 </head>
-<body>
+<body onload="console.log('container.onload');">
   <iframe src="game.html" width="100%" frameborder="0" scrolling="no"></iframe>
   <script>
     var f = document.getElementsByTagName('iframe')[0];
     f.style.height = window.innerHeight + 'px';
     f.setAttribute('scrolling', 'yes');
+    console.log('container.adjustHeight');
   </script>
 </body>
 </html>
