@@ -26,24 +26,32 @@
 <script>
   function init() {
     console.log('container.init');
-    if (window.innerHeight === 0) {
-      setTimeout(init, 100);
-      return;
-    }
 
     var f = document.createElement('iframe');
+    f.id = 'remote_iframe_0';
     f.src = './game.html';
+    f.style.height = '6300px';
 
     var c = document.getElementById('iframe-container');
     c.style.height = window.innerHeight + 'px';
     c.appendChild(f);
+
     console.log('container.adjustHeight');
     console.log('window.innerHeight = ' + window.innerHeight);
     console.log('screen.availHeight = ' + screen.availHeight);
   }
+
+  function init2() {
+    var f = document.getElementById('remote_iframe_0');
+    f.addEventListener('load', function() {
+      console.log('init2::load');
+      var c = document.getElementById('iframe-container');
+      c.scrollTop = 0;
+    });
+  }
 </script>
 </head>
-<body onload="console.log('container.onload'); init()">
+<body onload="console.log('container.onload'); init(); init2();">
   <div id="iframe-container"></div>
 </body>
 </html>
