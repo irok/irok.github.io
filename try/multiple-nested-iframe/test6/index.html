@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Cache-Control" content="no-store, no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<meta name="viewport" content="width=device-width" />
+<title>new page</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .trial {
+    display: none;
+    height: 200px;
+    background-color: #ccc;
+  }
+  #iframe-container iframe {
+    display: block;
+    border: none;
+  }
+</style>
+<script>
+  function init() {
+    var t = document.getElementsByClassName('trial')[0];
+
+    var f = document.createElement('iframe');
+    f.src = './container.html';
+    f.style.width = screen.availWidth + 'px';
+    f.style.height = (screen.availHeight - t.clientHeight) + 'px';
+
+    var c = document.getElementById('iframe-container');
+    c.appendChild(f);
+  }
+</script>
+</head>
+<body onload="init()">
+  <div class="trial">
+    nest: index &gt; container &gt; game<br/>
+    scrolling: yes, yes<br/>
+  </div>
+  <div id="iframe-container"></div>
+</body>
+</html>
