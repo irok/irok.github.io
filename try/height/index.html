@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>height</title>
+<script>
+  function showSize() {
+    var data = [
+      'window.innerHeight=' + window.innerHeight,
+      'screen.height=' + screen.height,
+      'screen.availHeight=' + screen.availHeight
+    ];
+    document.querySelector('#panel').innerHTML = data.join('\n');
+  }
+  window.addEventListener('load', showSize);
+  window.addEventListener('resize', showSize);
+</script>
+</head>
+<body>
+  <div id="panel"></div>
+</body>
+</html>
