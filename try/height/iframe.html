@@ -21,14 +21,16 @@
 </style>
 <script>
   function showSize() {
-    var container = document.querySelector('#container');
-    container.style.height = window.innerHeight + 'px';
+    var panel = document.querySelector('#panel');
+    panel.style.height = window.innerHeight + 'px';
   }
   window.addEventListener('load', showSize);
   window.addEventListener('resize', showSize);
 </script>
 </head>
 <body>
-  <iframe id="container" src="./index.html"></iframe>
+  <div id="panel">
+    <iframe src="./index.html"></iframe>
+  </div>
 </body>
 </html>
