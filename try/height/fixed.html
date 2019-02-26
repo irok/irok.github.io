@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>height</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #panel {
+    height: 1000px;
+    border: 2px solid #f00;
+    background-color: #fcc;
+  }
+</style>
+<script>
+  function showSize() {
+    var panel = document.querySelector('#panel');
+    var data = [
+      'window.innerHeight=' + window.innerHeight,
+      'screen.height=' + screen.height,
+      'screen.availHeight=' + screen.availHeight
+    ];
+    panel.innerHTML = data.join('<br>');
+  }
+  window.addEventListener('load', function() {
+    window.setTimeout(showSize, 1000);
+  });
+</script>
+</head>
+<body>
+  <div id="panel"></div>
+</body>
+</html>
