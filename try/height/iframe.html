@@ -20,9 +20,14 @@
   }
 </style>
 <script>
+  var loaded = false;
   function showSize() {
     var panel = document.querySelector('#panel');
     panel.style.height = window.innerHeight + 'px';
+    if (!loaded) {
+      document.querySelector('#container').setAttribute('src', './fixed.html?height=' + window.innerHeight);
+      loaded = true;
+    }
   }
   window.addEventListener('load', showSize);
   window.addEventListener('resize', showSize);
@@ -30,7 +35,7 @@
 </head>
 <body>
   <div id="panel">
-    <iframe src="./fixed.html"></iframe>
+    <iframe id="container"></iframe>
   </div>
 </body>
 </html>
