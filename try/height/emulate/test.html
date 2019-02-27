@@ -13,16 +13,18 @@
     padding: 0;
   }
   #page {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+  }
+  #container {
     width: 100%;
     overflow: auto;
   }
   iframe {
     display: block;
     width: 100%;
-    height: 100%;
     border: none;
   }
 </style>
@@ -31,12 +33,15 @@
     var height = window.innerHeight + 'px';
     document.body.style.height = height;
     document.querySelector('#page').style.height = height;
+    document.querySelector('#cntainer').style.height = height;
   });
 </script>
 </head>
 <body>
   <div id="page">
-    <iframe src="../1200px.html" style="height: 1200px;"></iframe>
+    <div id="container">
+      <iframe src="../1200px.html" style="height: 1200px;"></iframe>
+    </div>
   </div>
 </body>
 </html>
