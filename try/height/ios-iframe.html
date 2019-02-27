@@ -18,30 +18,57 @@
     border: none;
     vertical-align: top;
   }
-  .container--fixed {
+  .container {
     height: 300px;
+  }
+  .fixed {
     overflow: hidden;
   }
-  .container--scroll {
-    height: 300px;
+  .scroll {
     overflow: auto;
   }
 </style>
 </head>
 <body>
   <h1>iOSではiframeがどのように表示されるかの確認</h1>
-  <h2>test1</h2>
-  <p>高さ300pxのiframeに600pxのページを読み込むとどうなるか</p>
-  <iframe src="600px.html"></iframe>
+  <h2>高さ300pxのiframeに600pxのページを読み込むとどうなるか</h2>
+  <iframe id="test1-iframe" src="600px.html"></iframe>
+  <p>
+    iframe自体に height: 300px を指定しているが、600pxに拡張されてしまう。<br>
+    clientHeight = <script>document.write(document.querySelector('#test1-iframe').clientHeight);</script>
+  </p>
+  <p>これ以降のテストでは、iframeを高さ300pxのdivに閉じ込めることでサイズを固定する。</p>
   <h2>test2</h2>
-  <p>test1と同じだが、高さ300pxのdivでiframeを囲む (overflow: hidden)</p>
-  <div class="container--fixed">
-    <iframe src="600px.html"></iframe>
+  <p>
+    ・div: fixed<br>
+    ・iframe: fixed<br>
+  </p>
+  <div class="container fixed">
+    <iframe class="fixed" src="600px.html"></iframe>
   </div>
-  <h2>test3</h2>
-  <p>test2と同じだが、高さ300pxのdivでiframeを囲む (overflow: auto)</p>
-  <div class="container--scroll">
-    <iframe src="600px.html"></iframe>
+  <h3>test3</h3>
+  <p>
+    ・div: fixed<br>
+    ・iframe: scroll<br>
+  </p>
+  <div class="container fixed">
+    <iframe class="scroll" src="600px.html"></iframe>
+  </div>
+  <h2>test4</h2>
+  <p>
+    ・div: scroll<br>
+    ・iframe: fixed<br>
+  </p>
+  <div class="container scroll">
+    <iframe class="fixed" src="600px.html"></iframe>
+  </div>
+  <h3>test5</h3>
+  <p>
+    ・div: scroll<br>
+    ・iframe: scroll<br>
+  </p>
+  <div class="container scroll">
+    <iframe class="scroll" src="600px.html"></iframe>
   </div>
 
   <p>おわり</p>
