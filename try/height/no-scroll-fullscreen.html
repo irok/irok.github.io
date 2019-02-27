@@ -16,7 +16,6 @@
     top: 0;
     left: 0;
     right: 0;
-    overflow: hidden;
   }
   .box {
     height: 300px;
@@ -44,15 +43,16 @@
 
     window.setTimeout(function() {
       var page = document.querySelector('#page');
-      page.style.position = 'fixed';
       page.style.height = height;
+      // page.style.position = 'fixed';
+      // page.style.overflow = 'hidden';
     }, 1);
   });
 </script>
 </head>
 <body>
   <div id="page">
-    <h1>スクロールさせない2</h1>
+    <h1>スクロールさせない2.1</h1>
 
     <p>高さ＝<span id="view"></span></p>
 
