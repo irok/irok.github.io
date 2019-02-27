@@ -13,7 +13,6 @@
     padding: 0;
   }
   #page {
-    position: fixed;
     overflow: hidden;
   }
   .box {
@@ -30,11 +29,18 @@
   }
 </style>
 <script>
+  var height;
+
   document.addEventListener('DOMContentLoaded', function() {
-    var height = window.innerHeight + 'px';
-    document.body.style.height = height;
-    document.querySelector('#page').style.height = height;
-    document.querySelector('#view').textContent = height;
+    height = window.innerHeight;
+  });
+
+  window.addEventListener('load', function() {
+    window.scrollTo(0,1);
+
+    var page = document.querySelector('#page');
+    page.style.position = 'fixed';
+    document.querySelector('#view').textContent = page.style.height = height + 'px';
   });
 </script>
 </head>
@@ -49,6 +55,8 @@
       <div class="box"></div>
       <div class="box"></div>
     </div>
+
+    <p>コンテナ内をスクロールしようとしてもページ全体がスクロールしてしまうこともあり、操作感は悪い。</p>
   </div>
 </body>
 </html>
