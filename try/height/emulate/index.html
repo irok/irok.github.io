@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>height</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  #page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+  }
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var height = window.innerHeight + 'px';
+    document.body.style.height = height;
+    document.querySelector('#page').style.height = height;
+  });
+</script>
+</head>
+<body>
+  <div id="page">
+    <iframe src="container.html"></iframe>
+  </div>
+</body>
+</html>
