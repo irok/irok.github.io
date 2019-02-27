@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>height</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  #page-container {
+    overflow-y: auto;
+  }
+  .container {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: 300px;
+  }
+  .box {
+    height: 300px;
+    border: 2px solid;
+  }
+  .box:nth-child(odd) {
+    border-color: #f00;
+    background-color: #fcc;
+  }
+  .box:nth-child(even) {
+    border-color: #00f;
+    background-color: #ccf;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.body.style.height = window.innerHeight + 'px';
+    document.querySelector('#page-container').style.height = window.innerHeight + 'px';
+  });
+</script>
+</head>
+<body>
+  <div id="page-container">
+    <h1>overflowの確認</h1>
+
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <p>コンテナ内をスクロールしようとしてもページ全体がスクロールしてしまうこともあり、操作感は悪い。</p>
+  </div>
+</body>
+</html>
