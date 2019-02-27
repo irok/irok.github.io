@@ -12,32 +12,37 @@
     margin: 0;
     padding: 0;
   }
-  #panel {
-    border: 2px solid #f00;
-    background-color: #fcc;
+  iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    vertical-align: top;
   }
-  #rest {
-    height: 600px;
-    border-top: 2px solid #00f;
+  .container--fixed {
+    height: 300px;
+    overflow: hidden;
+  }
+  .container--scroll {
+    height: 300px;
+    overflow: auto;
   }
 </style>
-<script>
-  function showSize() {
-    var panel = document.querySelector('#panel');
-    var data = [
-      'window.innerHeight=' + window.innerHeight,
-      'screen.height=' + screen.height,
-      'screen.availHeight=' + screen.availHeight
-    ];
-    panel.innerHTML = data.join('<br>');
-    panel.style.height = window.innerHeight + 'px';
-  }
-  window.addEventListener('load', showSize);
-  window.addEventListener('resize', showSize);
-</script>
 </head>
 <body>
-  <div id="panel"></div>
-  <div id="rest">rest contents</div>
-</body>
+  <h1>iOSではiframeがどのように表示されるかの確認</h1>
+  <h2>test1</h2>
+  <p>高さ300pxのiframeに600pxのページを読み込むとどうなるか</p>
+  <iframe src="600px.html"></iframe>
+  <h2>test2</h2>
+  <p>test1と同じだが、高さ300pxのdivでiframeを囲む (overflow: hidden)</p>
+  <div class="container--fixed">
+    <iframe src="600px.html"></iframe>
+  </div>
+  <h2>test3</h2>
+  <p>test2と同じだが、高さ300pxのdivでiframeを囲む (overflow: auto)</p>
+  <div class="container--scroll">
+    <iframe src="600px.html"></iframe>
+  </div>
+
+  <p>おわり</p>
 </html>
