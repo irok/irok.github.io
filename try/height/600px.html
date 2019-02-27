@@ -25,6 +25,13 @@
     background-color: #ccf;
   }
 </style>
+<script>
+  window.addEventListener('load', function() {
+    if (window.name && window.parent && typeof window.parent.adjustIframe === 'function') {
+      window.parent.adjustIframe(window.name, document.body.clientHeight);
+    }
+  });
+</script>
 </head>
 <body>
   <div class="box"></div>

@@ -32,8 +32,13 @@
 </style>
 <script>
   // 子ページからiframeの高さを変更するためのAPI
-  // こちらダミー（ios-iframe-adjust.htmlでは機能する）
-  function adjustIframe() {}
+  function adjustIframe(name, height) {
+    var iframes = document.getElementsByName(name);
+    if (iframes.length > 0) {
+      iframes[0].style.height = height + 'px';
+      console.log('adjust height `' + name + '` to ' + height + 'px');
+    }
+  }
 
   // 初期化処理
   window.addEventListener('load', function() {
@@ -53,7 +58,8 @@
     ※JSで取得→<span id="test1-view"></span>
   </p>
   <p>
-    以降のテストではiframeを高さ300pxのdivに閉じ込めることで高さを固定する。
+    以降のテストではiframeを高さ300pxのdivに閉じ込めることで高さを固定する。<br>
+    iframeの高さを動的にコンテンツのサイズに合わせる。<br>
   </p>
 
   <h2>fixed fixed</h2>
