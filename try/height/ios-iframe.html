@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>height</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #panel {
+    border: 2px solid #f00;
+    background-color: #fcc;
+  }
+  #rest {
+    height: 600px;
+    border-top: 2px solid #00f;
+  }
+</style>
+<script>
+  function showSize() {
+    var panel = document.querySelector('#panel');
+    var data = [
+      'window.innerHeight=' + window.innerHeight,
+      'screen.height=' + screen.height,
+      'screen.availHeight=' + screen.availHeight
+    ];
+    panel.innerHTML = data.join('<br>');
+    panel.style.height = window.innerHeight + 'px';
+  }
+  window.addEventListener('load', showSize);
+  window.addEventListener('resize', showSize);
+</script>
+</head>
+<body>
+  <div id="panel"></div>
+  <div id="rest">rest contents</div>
+</body>
+</html>
