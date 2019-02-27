@@ -15,6 +15,13 @@
     height: 100%;
     overflow: hidden;
   }
+  #page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
   .box {
     height: 300px;
     border: 2px solid;
@@ -30,21 +37,26 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#view').textContent = document.body.style.height = window.innerHeight + 'px';
+    var height = window.innerHeight + 'px';
+    document.body.style.height = height;
+    document.querySelector('#page').style.height = height;
+    document.querySelector('#view').textContent = height;
   });
 </script>
 </head>
 <body>
-  <h1>スクロールさせない</h1>
+  <div id="page">
+    <h1>スクロールさせない</h1>
 
-  <p>高さ＝<span id="view"></span></p>
+    <p>高さ＝<span id="view"></span></p>
 
-  <div class="container">
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <p>コンテナ内をスクロールしようとしてもページ全体がスクロールしてしまうこともあり、操作感は悪い。</p>
   </div>
-
-  <p>コンテナ内をスクロールしようとしてもページ全体がスクロールしてしまうこともあり、操作感は悪い。</p>
 </body>
 </html>
