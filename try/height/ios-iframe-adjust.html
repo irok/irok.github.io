@@ -54,7 +54,8 @@
   <iframe id="test1-iframe" class="height-fixed" src="600px.html"></iframe>
   <p>
     iOSではiframeの高さが600pxに拡張されてしまう。<br>
-    iframeのclientHeightは<span id="test1-view"></span>px。<br>
+    JSでclientHeightを取得しても600pxになる。<br>
+    ※JSで取得した値→<span id="test1-view"></span>px<br>
   </p>
   <p>
     以降のテストではiframeを高さ300pxのdivに閉じ込めることで高さを固定する。<br>
