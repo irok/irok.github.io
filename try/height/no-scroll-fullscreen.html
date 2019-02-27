@@ -32,21 +32,24 @@
   var height;
 
   document.addEventListener('DOMContentLoaded', function() {
-    height = window.innerHeight;
+    height = window.innerHeight + 'px';
   });
 
   window.addEventListener('load', function() {
     window.scrollTo(0,1);
+    document.querySelector('#view').textContent = height;
 
-    var page = document.querySelector('#page');
-    page.style.position = 'fixed';
-    document.querySelector('#view').textContent = page.style.height = height + 'px';
+    window.setTimeout(function() {
+      var page = document.querySelector('#page');
+      page.style.position = 'fixed';
+      page.style.height = height;
+    }, 1);
   });
 </script>
 </head>
 <body>
   <div id="page">
-    <h1>スクロールさせない</h1>
+    <h1>スクロールさせない2</h1>
 
     <p>高さ＝<span id="view"></span></p>
 
