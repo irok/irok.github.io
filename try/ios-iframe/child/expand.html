@@ -13,14 +13,18 @@
     padding: 0;
   }
   .box {
-    height: 450px;
+    height: 200px;
     border: 2px solid;
   }
-  .box:nth-child(odd) {
+  .box:nth-child(3n+1) {
     border-color: #00f;
     background-color: #ccf;
   }
-  .box:nth-child(even) {
+  .box:nth-child(3n+2) {
+    border-color: #0f0;
+    background-color: #cfc;
+  }
+  .box:nth-child(3n+3) {    /* 3n でも同じ */
     border-color: #f00;
     background-color: #fcc;
   }
