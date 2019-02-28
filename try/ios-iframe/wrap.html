@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>divで囲んでみる</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #container {
+    height: 300px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+</head>
+<body>
+  <section>
+    <h1>divで囲んでみる</h1>
+    <p>
+      高さを300pxにしたdivの中にiframeを配置し、iframeに高さ600pxのページを読み込んでみる。<br>
+    </p>
+    <div id="container">
+      <iframe src="child/600px.html"></iframe>
+    </div>
+    <p>
+      結論、
+    </p>
+  </section>
+</body>
+</html>
