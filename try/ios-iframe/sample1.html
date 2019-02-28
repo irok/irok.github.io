@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>iOSでiframeを表示する</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+</head>
+<body>
+  <section>
+    <h1>iOSでiframeを表示する</h1>
+    <p>
+      iOS/Safariのiframeは、srcで読み込んだページの高さに合わせて高さが伸びる。<br>
+      下のサンプルはサイズ関連の属性もCSSも設定していないiframeに、高さ600pxのページを読み込んだもの。<br>
+    </p>
+    <iframe src="child/600px.html"></iframe>
+    <p>
+      iframeの高さを300pxに設定し、overflow: scroll を指定しても変わらない。
+    </p>
+    <iframe src="child/600px.html" style="height: 300px; overflow: scroll;"></iframe>
+    <p>
+      overflow: hidden でも同じ。
+    </p>
+    <iframe src="child/600px.html" style="height: 300px; overflow: hidden;"></iframe>
+  </section>
+</body>
+</html>

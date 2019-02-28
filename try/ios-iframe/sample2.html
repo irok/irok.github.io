@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>子ページの遷移とiframeの大きさ</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+</head>
+<body>
+  <section>
+    <h1>子ページの遷移とiframeの大きさ</h1>
+    <p>
+      子ページのサイズが変わると、iframeのサイズも自動的に伸縮するのか確認する。
+    </p>
+    <p>
+      iframeに600pxのページを読み込み、1000pxのページに遷移してみる。
+    </p>
+    <iframe src="child/600px-link.html"></iframe>
+    <p>
+      iframeに1000pxのページを読み込み、600pxのページに遷移してみる。
+    </p>
+    <iframe src="child/1000px-link.html"></iframe>
+    <p>
+      結論
+    </p>
+  </section>
+</body>
+</html>
