@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>expand</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .box {
+    height: 450px;
+    border: 2px solid;
+  }
+  .box:nth-child(odd) {
+    border-color: #00f;
+    background-color: #ccf;
+  }
+  .box:nth-child(even) {
+    border-color: #f00;
+    background-color: #fcc;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var showBtn = document.querySelector('#show');
+    var hideBtn = document.querySelector('#hide');
+
+    function toggle() {
+      showBtn.hidden = !showBtn.hidden;
+      hideBtn.parentElement.hidden = !hideBtn.parentElement.hidden;
+    }
+
+    showBtn.addEventListener('click', toggle);
+    hideBtn.addEventListener('click', toggle);
+  });
+</script>
+</head>
+<body>
+  <div class="box">
+    <button id="show">ボックスを増やす</button>
+  </div>
+  <div class="box" hidden>
+    <button id="hide">ボックスを減らす</button>
+  </div>
+</body>
+</html>
