@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<title>divで囲んでみる</title>
+<title>divで囲んでoverflowでスクロールさせる</title>
 <style>
   * {
     box-sizing: border-box;
@@ -27,12 +27,13 @@
 </head>
 <body>
   <section>
-    <h1>divで囲んでみる</h1>
+    <h1>divで囲んでoverflowでスクロールさせる</h1>
     <p>
-      高さを300pxにしたdivの中にiframeを配置し、iframeに高さ600pxのページを読み込んでみる。<br>
+      高さ300pxで overflow: auto を指定したdivを用意し、その中にiframeを配置してみる。<br>
+      iframeが300pxより大きければdivの方でスクロールするはず。<br>
     </p>
     <div id="container">
-      <iframe src="child/600px.html"></iframe>
+      <iframe src="child/600px-link.html"></iframe>
     </div>
     <p>
       結論、
