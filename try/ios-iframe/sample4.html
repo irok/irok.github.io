@@ -12,7 +12,7 @@
     margin: 0;
     padding: 0;
   }
-  #container {
+  .container {
     height: 300px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -32,11 +32,31 @@
       高さ300pxで overflow: auto を指定したdivを用意し、その中にiframeを配置してみる。<br>
       iframeが300pxより大きければdivの方でスクロールするはず。<br>
     </p>
-    <div id="container">
+    <div class="container">
       <iframe src="child/600px-link.html"></iframe>
     </div>
     <p>
-      結論、
+      結論<br>
+      ・指定した高さの表示領域内で子ページをスクロールさせることができた。<br>
+      ・ただし、iframe内で子ページがスクロールしているのではなく、div内でiframeがスクロールしているため、子ページが遷移してもページトップが表示されない。<br>
+      ※トップに戻ることもあり、ちょっと謎<br>
+    </p>
+  </section>
+  <section>
+    <h1>子ページが読み込み完了したらページトップに戻すようにする</h1>
+    <p>
+      ページトップに戻らない問題を解決するため、iframeのonloadでdivのスクロール位置をトップに戻してみる。
+    </p>
+    <div class="container">
+      <iframe id="test2" src="child/600px-link.html"></iframe>
+    </div>
+    <script>
+      var test2 = document.querySelector('#test2');
+      test2.addEventListener('load', function() {
+        test2.parentElement.scrollTop = 0;
+      });
+    </script>
+    <p>
     </p>
   </section>
 </body>
