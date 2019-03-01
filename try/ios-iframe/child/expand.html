@@ -30,6 +30,12 @@
   }
 </style>
 <script>
+  function showHeight() {
+    document.querySelector('#view').textContent = window.innerHeight;
+  }
+  window.addEventListener('load', showHeight);
+  window.addEventListener('resize', showHeight);
+
   document.addEventListener('DOMContentLoaded', function() {
     var showBtn = document.querySelector('#show');
     var hideBtn = document.querySelector('#hide');
@@ -46,6 +52,7 @@
 </head>
 <body>
   <div class="box">
+    <p>window.innerHeight = <span id="view"></span>px</p>
     <button id="show">ボックスを増やす</button>
   </div>
   <div class="box" hidden>
