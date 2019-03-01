@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>bodyをラッパーにしてみる</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .box {
+    height: 200px;
+    border: 2px solid;
+  }
+  .box:nth-child(3n+1) {
+    border-color: #00f;
+    background-color: #ccf;
+  }
+  .box:nth-child(3n+2) {
+    border-color: #0f0;
+    background-color: #cfc;
+  }
+  .box:nth-child(3n+3) {    /* 3n でも同じ */
+    border-color: #f00;
+    background-color: #fcc;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var wrapper = document.body;
+    wrapper.style.height = window.innerHeight + 'px';
+  });
+</script>
+</head>
+<body>
+  <h1>bodyをラッパーにしてみる</h1>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <p>ここでおわり</p>
+</body>
+</html>
