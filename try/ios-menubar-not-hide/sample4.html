@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<title>コンテンツもスクロールさせないようにする</title>
+<title>バウンドしないようにする</title>
 <style>
   * {
     box-sizing: border-box;
@@ -13,6 +13,8 @@
     padding: 0;
   }
   #wrapper {
+    position: fixed;
+    width: 100%;
     overflow: hidden;
   }
   .box {
@@ -43,9 +45,9 @@
 <body>
   <div id="wrapper">
     <div class="box">
-      <h1>コンテンツもスクロールさせないようにする</h1>
+      <h1>バウンドしないようにする</h1>
       <p>このブロックはメニューなどを除いた最大サイズに調整されています。</p>
-      <p>スクロールはしませんが、スワイプ操作でバウンドしてしまいます。（コンテンツ外まで少し見えて、そのあと戻される）</p>
+      <p>バウンドを防ぐ目的で position: fixed を指定しています。</p>
     </div>
   </div>
 </body>

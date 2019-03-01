@@ -12,6 +12,10 @@
     margin: 0;
     padding: 0;
   }
+  iframe {
+    width: 100%;
+    border: none;
+  }
 </style>
 </head>
 <body>
@@ -19,7 +23,7 @@
     <h1>iOSにおけるiframeの問題</h1>
     <p>
       iOS/Safariのiframeは、srcで読み込んだページの高さに合わせて高さが伸縮してしまいます。<br>
-      下のサンプルは素のiframeに高さ600pxのページを読み込んでいます。<br>
+      下のサンプルは width: 100% だけ指定したiframeに高さ600pxのページを読み込んでいます。<br>
     </p>
     <iframe src="child/600px.html"></iframe>
     <p>
