@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<title>子ページをスクロール可能にする</title>
+<title>トップウィンドウのスクロールを止める</title>
 <style>
   * {
     box-sizing: border-box;
@@ -11,6 +11,7 @@
   body {
     margin: 0;
     padding: 0;
+    -webkit-overflow-scrolling: auto;
   }
   .container {
     height: 300px;
@@ -27,9 +28,9 @@
 </head>
 <body>
   <section>
-    <h1>子ページをスクロール可能にする</h1>
+    <h1>トップウィンドウのスクロールを止める</h1>
     <p>
-      高さと overflow: auto を指定したdivを用意し、その中にiframeを配置します。<br>
+      子ページのスクロールとは別に、親ページ自身もスクロール可能であるため、
       divの中でiframeをスクロールさせることで、子ページがスクロールしているように見せることができます。<br>
     </p>
     <div class="container">

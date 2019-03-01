@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<title>子ページのコンテンツ追加とiframeの大きさ</title>
+<title>子ページの高さが変わったときの挙動</title>
 <style>
   * {
     box-sizing: border-box;
@@ -16,14 +16,11 @@
 </head>
 <body>
   <section>
-    <h1>子ページのコンテンツ追加とiframeの大きさ</h1>
+    <h1>子ページの高さが変わったときの挙動</h1>
     <p>
-      子ページのサイズが動的に変わっても、iframeのサイズが伸縮するのか確認する。
+      子ページのサイズが動的に変わった場合でも、iframeは自動的に伸縮します。
     </p>
     <iframe src="child/expand.html"></iframe>
-    <p>
-      結論、子ページの伸縮に合わせて伸縮する。
-    </p>
   </section>
 </body>
 </html>
