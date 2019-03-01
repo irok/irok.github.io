@@ -17,12 +17,6 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
-  iframe {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
 </style>
 </head>
 <body>
@@ -36,7 +30,7 @@
       <iframe src="child/600px-link.html"></iframe>
     </div>
     <p>
-      この実装には問題があり、子ページをある程度スクロールした状態でリンクをクリックすると、次のページが中途半端な位置から表示されてしまいます。<br>
+      この実装には問題があり、子ページをスクロールした状態でリンクをクリックすると、次のページが中途半端な位置から表示されてしまいます。<br>
       これは、子ページが遷移してもdiv内のiframeの表示位置は変わらないためです。
     </p>
     <p>
