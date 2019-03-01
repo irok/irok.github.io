@@ -29,9 +29,15 @@
     background-color: #fcc;
   }
 </style>
+<script>
+  window.addEventListener('load', function() {
+    document.querySelector('#view').textContent = window.innerHeight;
+  });
+</script>
 </head>
 <body>
-  <div class="box"></div>
+  <div class="box">
+    window.innerHeight = <span id="view"></span>px</div>
   <div class="box"></div>
   <div class="box"></div>
 </body>

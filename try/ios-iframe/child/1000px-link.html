@@ -29,9 +29,18 @@
     background-color: #fcc;
   }
 </style>
+<script>
+  function showHeight() {
+    document.querySelector('#view').textContent = window.innerHeight;
+  }
+  window.addEventListener('load', showHeight);
+  window.addEventListener('resize', showHeight);
+</script>
 </head>
 <body>
-  <div class="box"><a href="600px-link.html">600pxのページ</a></div>
+  <div class="box">
+    window.innerHeight = <span id="view"></span>px</div>
+  </div>
   <div class="box"><a href="600px-link.html">600pxのページ</a></div>
   <div class="box"><a href="600px-link.html">600pxのページ</a></div>
   <div class="box"><a href="600px-link.html">600pxのページ</a></div>
