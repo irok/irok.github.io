@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>iframe内のページ</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .box {
+    width: 100%;
+    height: 100%;
+    border: 10px solid;
+  }
+  .box:nth-child(3n+1) {
+    border-color: #00f;
+    background-color: #ccf;
+  }
+  .box:nth-child(3n+2) {
+    border-color: #0f0;
+    background-color: #cfc;
+  }
+  .box:nth-child(3n+3) {    /* 3n でも同じ */
+    border-color: #f00;
+    background-color: #fcc;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var box = document.querySelector('div.box');
+    box.style.height = window.innerHeight + 'px';
+  });
+</script>
+</head>
+<body>
+  <div class="box">
+    <h1>バウンドしないようにする（iframe版）</h1>
+    <p>
+      このブロックはiframe内に表示されている子ページです。<br>
+      メニューなどを除いた最大サイズに調整されています。<br>
+    </p>
+  </div>
+</body>
+</html>
