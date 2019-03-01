@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>コンテンツもスクロールさせないようにする</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #wrapper {
+    overflow: hidden;
+  }
+  .box {
+    border: 10px solid;
+  }
+  .box:nth-child(3n+1) {
+    border-color: #00f;
+    background-color: #ccf;
+  }
+  .box:nth-child(3n+2) {
+    border-color: #0f0;
+    background-color: #cfc;
+  }
+  .box:nth-child(3n+3) {    /* 3n でも同じ */
+    border-color: #f00;
+    background-color: #fcc;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var wrapper = document.querySelector('#wrapper');
+    wrapper.style.height = window.innerHeight + 'px';
+    var box = document.querySelector('div.box');
+    box.style.height = window.innerHeight + 'px';
+  });
+</script>
+</head>
+<body>
+  <div id="wrapper">
+    <div class="box">
+      <h1>コンテンツもスクロールさせないようにする</h1>
+      <p>このブロックはメニューなどを除いた最大サイズに調整されています。</p>
+    </div>
+  </div>
+</body>
+</html>
