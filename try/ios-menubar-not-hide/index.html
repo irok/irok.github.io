@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>iOS/Safariでメニューバーを常に表示する</title>
+<style>
+  a:empty::after {
+    content: "(" attr(href) ")";
+  }
+</style>
+</head>
+<body>
+  <h1>iOS/Safariでメニューバーを常に表示する</h1>
+  <p>
+    iOS/Safariは上部にアドレスバー、下部にメニューバーが表示されており、ページをスクロールするとそれぞれ最小化または非表示になります。<br>
+    この挙動をコンテンツ側からコントロールする方法はありませんが、スクロールが発生しないページでは常に表示されたままになります。<br>
+    これを利用し、アドレスバーとメニューバーを除いた領域いっぱいにdivを固定し、その中でコンテンツがスクロールするようにすれば、スクロールが発生するページでもメニューバーなどを表示したままにできます。<br>
+  </p>
+  <p>
+    アドレスバーとメニューバーを除いた領域の高さは、window.innerHeight で取得することができます。<br>
+    メニューが非表示になって表示領域が広がると window.innerHeight も一緒に大きくなってしまうため、DOMContentLoaded のタイミングで取得するようにします。<br>
+  </p>
+  <ul>
+    <li><a href="./sample1.html">ラッパーdivで固定する</a></li>
+  </ul>
+  ※
+</body>
+</html>
