@@ -7,7 +7,10 @@
 <script>
   $(function() {
     $('#bbs').on('submit', function() {
-      var text = $('#input').val().replace(/<[^<]*?>/g, '').trim();
+      var text = $('#input').val()
+        .replace(/<[^<]*?>/g, '')
+        .replace(/\son[a-z]+\s*=/ig, '')
+        .trim();
       if (text !== '') {
         $('#posts').html('<hr>' + text + $('#posts').html());
         $('#input').val('');
