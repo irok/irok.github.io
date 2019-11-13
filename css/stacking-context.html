@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>new page</title>
+<style>
+  .container {
+    position: relative;
+  }
+
+  .box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #999;
+  }
+
+  .box-1 {
+    background-color: #f99;
+  }
+
+  .box-2 {
+    z-index: 1;
+    top: -120px;
+    left: 80px;
+    background-color: #fbb;
+  }
+
+  .box-3 {
+    /* z-index: auto; */
+    top: -240px;
+    left: 160px;
+    background-color: #fdd;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="box box-1"></div>
+    <div class="box box-2"></div>
+    <div class="box box-3"></div>
+  </div>
+</body>
+</html>

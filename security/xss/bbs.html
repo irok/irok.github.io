@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>１行掲示板</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+  $(function() {
+    $('#bbs').on('submit', function() {
+      var text = $('#input').val().replace(/<[^<]*?>/g, '').trim();
+      if (text !== '') {
+        $('#posts').html('<hr>' + text + $('#posts').html());
+        $('#input').val('');
+      }
+      return false;
+    });
+  });
+</script>
+</head>
+<body>
+  <form id="bbs">
+    <input id="input" size="40"><button>投稿</button>
+  </form>
+  <div id="posts"></div>
+</body>
+</html>
