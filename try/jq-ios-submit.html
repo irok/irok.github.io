@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>iOS送信</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+  $(function() {
+    $('#search').submit(function() {
+      var $form = $(this);
+
+      if ($form.data('post-once-done')) {
+        return false;
+      }
+      $form.data('post-once-done', true);
+
+      $form.find(':submit').prop('disabled', true);
+
+      return true;
+    });
+  });
+</script>
+</head>
+<body>
+  <form id="search" method="get">
+    <input type="input" name="q" size="40"><button type="submit">検索</button>
+  </form>
+  <div id="posts"></div>
+</body>
+</html>
