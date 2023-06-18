@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>fetch</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  button,
+  input[type="url"],
+  input[type="text"],
+  select,
+  textarea {
+    height: 1.5rem;
+    padding: 2px 6px;
+    vertical-align: top;
+  }
+  textarea {
+    width: 500px;
+    height: 100px;
+  }
+  #method {
+    width: 100px;
+  }
+  #url {
+    width: 400px;
+  }
+  #authz {
+    width: 400px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+</style>
+<script>
+  const $ = (selector) => document.querySelector(selector);
+
+  function send() {
+    event.preventDefault();
+
+    const method = $('#method').value;
+    const url = $('#url').value;
+    const contentType = $('#content-type').value;
+    const authrization = $('#authz').value;
+    const credentials = $('#credentials').value;
+    const body = createBody(method, contentType);
+
+    const headers = {};
+    if (method != 'GET') {
+      headers['Content-Type'] = `${contentType}; charset=UTF-8`;
+    }
+    if (authrization != '') {
+      headers['Authrization'] = authrization;
+    }
+    if ($('#requested-with').checked) {
+      headers['X-Requested-With'] = 'XMLHttpRequest';
+    }
+
+    $('#req').textContent = `Request at ${(new Date()).toLocaleString()}`;
+    $('#res').textContent = '';
+
+    fetch(url, {
+      mode: 'cors',
+      cache: 'no-cache',
+      method, credentials, headers, body
+    })
+      .then(res => {
+        $('#res').textContent = res.text;
+      })
+      .catch(error => {
+        $('#res').textContent = `Error: ${error}`;
+      })
+  }
+
+  function createBody(method, contentType) {
+    if (method == 'GET')
+      return null;
+
+    const payload = $('#payload').value;
+    return contentType == 'application/json'
+      ? JSON.stringify(JSON.parse(payload))
+      : payload
+      ;
+  }
+
+  function changeMethod() {
+    if ($('#method').value == 'GET') {
+      $('#payload').setAttribute('disabled', 'disabled');
+      $('#content-type').setAttribute('disabled', 'disabled');
+    } else {
+      $('#payload').removeAttribute('disabled');
+      $('#content-type').removeAttribute('disabled');
+    }
+  }
+
+  function basic() {
+    event.preventDefault();
+
+    const user = $('#basic-user').value;
+    const pass = $('#basic-pass').value;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const offset = reader.result.indexOf(",") + 1;
+      const encoded = reader.result.slice(offset);
+      $('#authz').value = `Basic ${encoded}`;
+    };
+    reader.readAsDataURL(new Blob([`${user}:${pass}`]));
+  }
+
+  function init() {
+    changeMethod.call();
+  }
+</script>
+</head>
+<body onload="init()">
+  <form onsubmit="send()">
+    リクエストライン<br>
+    <select id="method" onchange="changeMethod()">
+      <option>GET</option>
+      <option>POST</option>
+      <option>PUT</option>
+      <option>DELETE</option>
+      <option>PATCH</option>
+    </select><input id="url" type="url" value="https://"><br>
+    <br>
+    ペイロード<br>
+    <textarea id="payload"></textarea><br>
+    <br>
+    HTTPヘッダー<br>
+    Content-Type: <select id="content-type">
+      <option>application/x-www-form-urlencoded</option>
+      <option>application/json</option>
+    </select><br>
+    Authorization: <input id="authz" type="text" value=""><br>
+    <br>
+    credentials<br>
+    <select id="credentials">
+      <option>include</option>
+      <option>omit</option>
+      <option>same-origin</option>
+    </select><br>
+    <br>
+    <label><input type="checkbox" id="requested-with"/>X-Requested-With: XMLHttpRequest</label><br>
+    <br>
+    <button>送信</button>
+  </form>
+  <p>
+    <div id="req"></div>
+    <div id="res"></div>
+  </p>
+  <hr>
+  <form onsubmit="basic()">
+    Basic認証<br>
+    <input id="basic-user" type="text">@<input id="basic-pass" type="text">
+    <button>計算</button>
+  </form>
+</body>
+</html>

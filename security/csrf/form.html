@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>POST form</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  button,
+  input[type="url"],
+  input[type="text"],
+  select,
+  textarea {
+    height: 1.5rem;
+    padding: 2px 6px;
+    vertical-align: baseline;
+  }
+  textarea {
+    width: 500px;
+    height: 100px;
+  }
+  code {
+    font-size: 18px;
+  }
+  .indent {
+    margin-left: 1em;
+  }
+  .hidden {
+    display: none;
+  }
+  .name {
+    width: 200px;
+  }
+  #method {
+    width: 100px;
+  }
+  #action, .value {
+    width: 400px;
+  }
+</style>
+<script>
+  const $ = (selector) => document.querySelector(selector);
+  let formCount = 0;
+
+  function send() {
+    event.preventDefault();
+
+    const form = document.createElement('form');
+    form.method = $('#method').value;
+    form.action = $('#action').value;
+    form.target = "_blank";
+    form.hidden = true;
+
+    for (let id = 1; id <= formCount; id++) {
+      form.appendChild(hidden($(`#n${id}`).value, $(`#v${id}`).value));
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+  }
+
+  function addParam() {
+    const id = ++formCount;
+    const p = document.createElement('p');
+    p.appendChild(code('<input name="'));
+    p.appendChild(text(`n${id}`, 'name'));
+    p.appendChild(code('" value="'));
+    p.appendChild(text(`v${id}`, 'value'));
+    p.appendChild(code('">'));
+    const cntl = $('#cntl');
+    cntl.parentNode.insertBefore(p, cntl);
+  }
+
+  function addText() {
+    const id = ++formCount;
+    const p = document.createElement('p');
+    p.appendChild(code('<textarea name="'));
+    p.appendChild(text(`n${id}`, 'name'));
+    p.appendChild(code('">'));
+    p.appendChild(br());
+    p.appendChild(textarea(`v${id}`, 'value indent'));
+    p.appendChild(br());
+    p.appendChild(code('</textarea>'));
+    const cntl = $('#cntl');
+    cntl.parentNode.insertBefore(p, cntl);
+  }
+
+  function br() {
+    return document.createElement('br');
+  }
+
+  function code(text) {
+    const elm = document.createElement('code');
+    elm.appendChild(document.createTextNode(text));
+    return elm;
+  }
+
+  function textarea(name, className) {
+    const elm = document.createElement('textarea');
+    elm.id = name;
+    elm.name = name;
+    elm.className = className;
+    return elm;
+  }
+
+  function input(type, name) {
+    const elm = document.createElement('input');
+    elm.type = type;
+    elm.id = name;
+    elm.name = name;
+    return elm;
+  }
+
+  function text(name, className) {
+    const elm = input('text', name, className);
+    elm.className = className;
+    return elm;
+  }
+
+  function hidden(name, value) {
+    const elm = input('hidden', name);
+    elm.value = value;
+    return elm;
+  }
+</script>
+</head>
+<body>
+  <form onsubmit="send()">
+    <code>&lt;form method="</code><select id="method">
+      <option>POST</option>
+      <option>GET</option>
+    </select><code>" action="</code><input id="action" type="url" value="https://"><code>"&gt;</code>
+    <div class="indent">
+      <p id="cntl"><button type="button" onclick="addParam()">パラメータ追加</button><button type="button" onclick="addText()">テキストデータ追加</button></p>
+      <p><button>送信（別タブで開く）</button></p>
+    </div>
+    <code>&lt;/form&gt;</code>
+  </form>
+</body>
+</html>
