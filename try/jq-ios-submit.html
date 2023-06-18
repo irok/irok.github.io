@@ -6,17 +6,35 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
   $(function() {
-    $('#search').submit(function() {
-      var $form = $(this);
-
+    function postOnce($form) {
       if ($form.data('post-once-done')) {
         return false;
       }
       $form.data('post-once-done', true);
 
-      $form.find(':submit').prop('disabled', true);
+      setTimeout(function() {
+        $form.find(':submit').prop('disabled', true);
+      }, 1);
 
       return true;
+    }
+
+    $('#search').submit(function() {
+      console.log('submit event');
+      var $form = $(this);
+
+      if (postOnce($form)) {
+        console.log('first post');
+        setTimeout(function() {
+          console.log('submit api');
+          $form.off('submit');
+          $form.submit();
+        }, 3000);
+      } else {
+        console.log('NOT first post');
+      }
+
+      return false;
     });
   });
 </script>
